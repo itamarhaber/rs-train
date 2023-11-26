@@ -1,0 +1,60 @@
+{
+  "name": "cities",
+  "description": "Major cities of the world",
+  "type": "HASH",
+  "api_statement": "",
+  "prefixes": [
+    "city:"
+  ],
+  "attributes": [
+    {
+      "name": "city_ascii",
+      "alias": "city",
+      "type": "TEXT",
+      "description": "The city's name in pure ASCII"
+    },
+    {
+      "name": "lat",
+      "alias": "lat",
+      "type": "Nu",
+      "description": "Latitude"
+    },
+    {
+      "name": "lng",
+      "alias": "lng",
+      "type": "NUMERIC",
+      "description": "Longitude"
+    },
+    {
+      "name": "country",
+      "alias": "country",
+      "type": "TEXT",
+      "description": "The country where the city is located"
+    },
+    {
+      "name": "admin_name",
+      "alias": "admin_name",
+      "type": "TEXT",
+      "description": "Administrative region to which the city belongs, if any"
+    },
+    {
+      "name": "capital",
+      "alias": "capital",
+      "type": "TAG",
+      "description": "Indicates the type of capital that the city is, if at all",
+      "count": 4,
+      "samples": [
+        "primary",
+        "minor",
+        "admin",
+        ""
+      ]
+    },
+    {
+      "name": "population",
+      "alias": "population",
+      "type": "NUMERIC",
+      "description": "The number of inhabitants of the city"
+    }
+  ]
+}

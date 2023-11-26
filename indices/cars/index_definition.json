@@ -1,0 +1,63 @@
+{
+  "name": "cars",
+  "description": "Used car listings",
+  "api_create": "FT.CREATE bites ON HASH PREFIX 1 \"listing:\" SCHEMA Year NUMERIC Make TAG Model TAG Price NUMERIC SellerType TAG SellerName TEXT State TAG Mileage NUMERIC",
+  "type": "HASH",
+  "prefixes": [
+    "listing:"
+  ],
+  "attributes": [
+    {
+      "name": "Year",
+      "alias": "Year",
+      "type": "NUMERIC",
+      "description": "Year the car was made"
+    },
+    {
+      "name": "Make",
+      "alias": "Make",
+      "type": "TAG",
+      "description": "The car's make"
+    },
+    {
+      "name": "Model",
+      "alias": "Model",
+      "type": "TAG",
+      "description": "The car's model"
+    },
+    {
+      "name": "Price",
+      "alias": "Price",
+      "type": "NUMERIC",
+      "description": "The asking price for the car"
+    },
+    {
+      "name": "SellerType",
+      "alias": "SellerType",
+      "type": "TAG",
+      "description": "The type of seller",
+      "count": 2,
+      "samples": [
+        "Dealer", "Private"
+      ]
+    },
+    {
+      "name": "SellerName",
+      "alias": "SellerName",
+      "type": "TEXT",
+      "description": "The name of the seller"
+    },
+    {
+      "name": "State",
+      "alias": "State",
+      "type": "TAG",
+      "description": "The state the seller is in"
+    },
+    {
+      "name": "Mileage",
+      "alias": "Mileage",
+      "type": "NUMERIC",
+      "description": "The car's mileage"
+    }
+  ]
+}
