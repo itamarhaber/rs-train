@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from redis import Redis
-from redis.commands.search.field import TextField, NumericField, TagField
+from redis.commands.search.field import TextField, NumericField, TagField, GeoField
 from redis.commands.search.indexDefinition import IndexDefinition, IndexType
 
 def is_number(s):
@@ -22,11 +22,14 @@ def load_data(r: Redis) -> None:
   df['admin_name'] = df['admin_name'].fillna('')
   df['population'] = df['population'].fillna(0)
 
+  # Create a new location column with the string representation of the lng and lat columns
+  df['location'] = df['lng'].astype(str) + ',' + df['lat'].astype(str)
+  df = df.drop(columns=['lng', 'lat'])
+
   # Create the index
   schema = (
     TextField("city_ascii", as_name="city"),
-    NumericField("lat", as_name="lat"),
-    NumericField("lng", as_name="lng"),
+    GeoField("location", as_name="location"),
     TextField("country", as_name="country"),
     TextField("admin_name", as_name="admin_name"),
     TagField("capital", as_name="capital"),

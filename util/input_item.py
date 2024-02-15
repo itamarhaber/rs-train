@@ -1,4 +1,6 @@
 import frontmatter
+import shlex
+import json
 
 # An abstraction of an input item section
 class InputItemSection(object):
@@ -24,6 +26,23 @@ class InputItem(object):
         self.append(curr)
       else:
         curr.content.append(line)
+
+    if 'CLI' in self.headings and 'ARGS' not in self.headings:
+      args = [
+        '',
+        '```python',
+        repr(shlex.split(self.get_code('CLI'))),
+        '```'
+      ]
+      self.append(InputItemSection('ARGS', args))
+    if 'CLI' in self.headings and 'JSON' not in self.headings:
+      args = [
+        '',
+        '```json',
+        json.dumps(shlex.split(self.get_code('CLI'))),
+        '```'
+      ]
+      self.append(InputItemSection('JSON', args))
 
   def append(self, section: InputItemSection) -> None:
     self.sections.append(section)

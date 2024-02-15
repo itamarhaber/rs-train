@@ -1,3 +1,5 @@
+# Load data and indices into Redis
+
 from indices import load_bites_data, load_cars_data, load_cities_data
 from redis import Redis
 

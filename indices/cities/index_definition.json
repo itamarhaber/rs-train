@@ -1,60 +1,174 @@
 {
-  "name": "cities",
-  "description": "Major cities of the world",
-  "type": "HASH",
-  "api_statement": "",
-  "prefixes": [
-    "city:"
-  ],
-  "attributes": [
-    {
-      "name": "city_ascii",
-      "alias": "city",
+  "index_name": "cities",
+  "create_statement": "FT.CREATE cities ON HASH PREFIX 1 city: SCHEMA city_ascii AS city TEXT location AS location GEO country AS country TEXT admin_name AS admin_name TEXT capital AS capital TAG population AS population NUMERIC",
+  "attributes": {
+    "city": {
+      "identifier": "city_ascii",
+      "attribute": "city",
       "type": "TEXT",
-      "description": "The city's name in pure ASCII"
-    },
-    {
-      "name": "lat",
-      "alias": "lat",
-      "type": "Nu",
-      "description": "Latitude"
-    },
-    {
-      "name": "lng",
-      "alias": "lng",
-      "type": "NUMERIC",
-      "description": "Longitude"
-    },
-    {
-      "name": "country",
-      "alias": "country",
-      "type": "TEXT",
-      "description": "The country where the city is located"
-    },
-    {
-      "name": "admin_name",
-      "alias": "admin_name",
-      "type": "TEXT",
-      "description": "Administrative region to which the city belongs, if any"
-    },
-    {
-      "name": "capital",
-      "alias": "capital",
-      "type": "TAG",
-      "description": "Indicates the type of capital that the city is, if at all",
-      "count": 4,
-      "samples": [
-        "primary",
-        "minor",
-        "admin",
-        ""
+      "WEIGHT": "1",
+      "distinct_count": 41140,
+      "top_values": [
+        {
+          "value": "Santa Cruz",
+          "count": "17"
+        },
+        {
+          "value": "San Fernando",
+          "count": "16"
+        },
+        {
+          "value": "Santa Ana",
+          "count": "15"
+        },
+        {
+          "value": "San Jose",
+          "count": "14"
+        },
+        {
+          "value": "Santa Maria",
+          "count": "14"
+        }
       ]
     },
-    {
-      "name": "population",
-      "alias": "population",
+    "location": {
+      "identifier": "location",
+      "attribute": "location",
+      "type": "GEO",
+      "distinct_count": 44553,
+      "top_values": [
+        {
+          "value": "74.58,16.42",
+          "count": "7"
+        },
+        {
+          "value": "75.03,12.9",
+          "count": "6"
+        },
+        {
+          "value": "74.56,15.88",
+          "count": "6"
+        },
+        {
+          "value": "74.78,16.48",
+          "count": "5"
+        },
+        {
+          "value": "74.75,15.79",
+          "count": "4"
+        }
+      ]
+    },
+    "country": {
+      "identifier": "country",
+      "attribute": "country",
+      "type": "TEXT",
+      "WEIGHT": "1",
+      "distinct_count": 241,
+      "top_values": [
+        {
+          "value": "India",
+          "count": "5933"
+        },
+        {
+          "value": "United States",
+          "count": "5393"
+        },
+        {
+          "value": "Brazil",
+          "count": "2903"
+        },
+        {
+          "value": "Germany",
+          "count": "1733"
+        },
+        {
+          "value": "Philippines",
+          "count": "1578"
+        }
+      ]
+    },
+    "admin_name": {
+      "identifier": "admin_name",
+      "attribute": "admin_name",
+      "type": "TEXT",
+      "WEIGHT": "1",
+      "distinct_count": 4021,
+      "top_values": [
+        {
+          "value": "Bih\u0101r",
+          "count": "1385"
+        },
+        {
+          "value": "Andhra Pradesh",
+          "count": "1037"
+        },
+        {
+          "value": "Tamil N\u0101du",
+          "count": "1014"
+        },
+        {
+          "value": "California",
+          "count": "522"
+        },
+        {
+          "value": "Karn\u0101taka",
+          "count": "514"
+        }
+      ]
+    },
+    "capital": {
+      "identifier": "capital",
+      "attribute": "capital",
+      "type": "TAG",
+      "SEPARATOR": ",",
+      "distinct_count": 4,
+      "top_values": [
+        {
+          "value": "",
+          "count": "33553"
+        },
+        {
+          "value": "minor",
+          "count": "7262"
+        },
+        {
+          "value": "admin",
+          "count": "3625"
+        },
+        {
+          "value": "primary",
+          "count": "250"
+        }
+      ]
+    },
+    "population": {
+      "identifier": "population",
+      "attribute": "population",
       "type": "NUMERIC",
-      "description": "The number of inhabitants of the city"
+      "distinct_count": 29657,
+      "top_values": [
+        {
+          "value": "0",
+          "count": "311"
+        },
+        {
+          "value": "10000",
+          "count": "115"
+        },
+        {
+          "value": "9000",
+          "count": "74"
+        },
+        {
+          "value": "15000",
+          "count": "71"
+        },
+        {
+          "value": "13000",
+          "count": "61"
+        }
+      ]
     }
-  ]
+  }
 }

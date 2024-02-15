@@ -1,64 +1,158 @@
 {
-  "name": "bites",
-  "description": "Dog bite report incidents from New York City",
-  "type": "HASH",
-  "api_statement": "FT.CREATE bites ON HASH PREFIX 1 \"incident:\" SCHEMA DateOfBite NUMERIC Breed TEXT Age NUMERIC Gender TAG SpayNeuter TAG Borough TAG",
-  "prefixes": [
-    "incident:"
-  ],
-  "attributes": [
-    {
-      "name": "DateOfBite",
-      "alias": "DateOfBite",
+  "index_name": "bites",
+  "create_statement": "FT.CREATE bites ON HASH PREFIX 1 incident: SCHEMA DateOfBite AS DateOfBite NUMERIC Breed AS Breed TEXT Age AS Age NUMERIC Gender AS Gender TAG SpayNeuter AS SpayNeuter TAG Borough AS Borough TAG",
+  "attributes": {
+    "DateOfBite": {
+      "identifier": "DateOfBite",
+      "attribute": "DateOfBite",
       "type": "NUMERIC",
-      "description": "Date of bite incident as numeric timestamp"
+      "distinct_count": 2466,
+      "top_values": [
+        {
+          "value": "1433548800",
+          "count": "14"
+        },
+        {
+          "value": "1461974400",
+          "count": "14"
+        },
+        {
+          "value": "1556236800",
+          "count": "14"
+        },
+        {
+          "value": "1446768000",
+          "count": "14"
+        },
+        {
+          "value": "1466553600",
+          "count": "13"
+        }
+      ]
     },
-    {
-      "name": "Breed",
-      "alias": "Breed",
+    "Breed": {
+      "identifier": "Breed",
+      "attribute": "Breed",
       "type": "TEXT",
-      "description": "Dog breed"
+      "WEIGHT": "1",
+      "distinct_count": 1349,
+      "top_values": [
+        {
+          "value": "Pit Bull",
+          "count": "1245"
+        },
+        {
+          "value": "Shih Tzu",
+          "count": "431"
+        },
+        {
+          "value": "American Pit Bull Mix / Pit Bull Mix",
+          "count": "416"
+        },
+        {
+          "value": "Mixed/Other",
+          "count": "321"
+        },
+        {
+          "value": "German Shepherd",
+          "count": "313"
+        }
+      ]
     },
-    {
-      "name": "Age",
-      "alias": "Age",
+    "Age": {
+      "identifier": "Age",
+      "attribute": "Age",
       "type": "NUMERIC",
-      "description": "Dog age"
-    },
-    {
-      "name": "Gender",
-      "alias": "Gender",
-      "type": "TAG",
-      "description": "Dog gender",
-      "count": 3,
-      "samples": [
-        "M", "F", "U"
+      "distinct_count": 36,
+      "top_values": [
+        {
+          "value": "2",
+          "count": "1624"
+        },
+        {
+          "value": "3",
+          "count": "1504"
+        },
+        {
+          "value": "1",
+          "count": "1365"
+        },
+        {
+          "value": "4",
+          "count": "1178"
+        },
+        {
+          "value": "5",
+          "count": "1040"
+        }
       ]
     },
-    {
-      "name": "SpayNeuter",
-      "alias": "SpayNeuter",
+    "Gender": {
+      "identifier": "Gender",
+      "attribute": "Gender",
       "type": "TAG",
-      "description": "True if the dog is spayed or neutered",
-      "count": 2,
-      "samples": [
-        "True", "False"
+      "SEPARATOR": ",",
+      "distinct_count": 3,
+      "top_values": [
+        {
+          "value": "M",
+          "count": "7300"
+        },
+        {
+          "value": "F",
+          "count": "2772"
+        },
+        {
+          "value": "U",
+          "count": "158"
+        }
       ]
     },
-    {
-      "name": "Borough",
-      "alias": "Borough",
+    "SpayNeuter": {
+      "identifier": "SpayNeuter",
+      "attribute": "SpayNeuter",
       "type": "TAG",
-      "description": "The borough where the incident occurred",
-      "count": 6,
-      "samples": [
-        "Staten Island",
-        "Manhattan",
-        "Other",
-        "Bronx",
-        "Brooklyn",
-        "Queens"
+      "SEPARATOR": ",",
+      "distinct_count": 2,
+      "top_values": [
+        {
+          "value": "True",
+          "count": "5269"
+        },
+        {
+          "value": "False",
+          "count": "4961"
+        }
+      ]
+    },
+    "Borough": {
+      "identifier": "Borough",
+      "attribute": "Borough",
+      "type": "TAG",
+      "SEPARATOR": ",",
+      "distinct_count": 6,
+      "top_values": [
+        {
+          "value": "Queens",
+          "count": "2873"
+        },
+        {
+          "value": "Manhattan",
+          "count": "2385"
+        },
+        {
+          "value": "Brooklyn",
+          "count": "2114"
+        },
+        {
+          "value": "Bronx",
+          "count": "1538"
+        },
+        {
+          "value": "Staten Island",
+          "count": "876"
+        }
       ]
     }
-  ]
+  }
 }
